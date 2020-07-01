@@ -12,6 +12,15 @@ fun main() {
     val c: Char = 'A'
     println(c.toInt() > 60)
 
+    var a = "abcde"
+    println(a.length)
+    println(a.get(3))
+    println(a.substring(3))
+
+    var b : String? = "abcde"
+    b = null
+    println(b?.get(2))
+    println(b?.substring(3))
 
 /*    h.hello()
     h.hi()*/
