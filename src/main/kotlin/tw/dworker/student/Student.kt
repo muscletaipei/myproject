@@ -14,33 +14,28 @@ fun main() {
 
 class Student (var name: String, var english : Int, var math: Int){
     fun print (){
-        println(name + "\t" + english + "\t" + math + "\t"
-                + getAverage() + "\t" + if (getAverage() >= 60) "PASS" else "FAILED" )
+        println("$name\t$english\t$math\t${getAverage()}" +
+                "\t${grading()}\t${passOrFailed()}")
+    }
+    fun passOrFailed() = if (getAverage() >= 60) "PASS" else "FAILED"
 
-        /*if (getAverage() >= 60) {
-            println("\tPASS")
-        }else{
-            println("\tFAIL")
-        }*/
-    }
-    fun getAverage() : Int{
-        return (english+math)/2
-    }
-    fun highest() : Int{
-        var max = if (english > math){
-            println("english")
-            english
-        } else {
-            println("math")
-            math
+    fun grading() = when(getAverage()){
+            in 90..100 -> 'A'
+            in 80..89 -> 'B'
+            in 70..79 -> 'C'
+            in 60..69 -> 'D'
+            else -> 'F'
         }
-/*        if (english > math){
-            max = english
-        }else{
-            max = math
-        }*/
-        return max
+    fun getAverage() = (english+math)/2
+
+    fun highest() = if (english > math){
+        println("english")
+        english
+    } else {
+        println("math")
+        math
     }
+    fun nameCheck() = name.length
 
 }
 private fun userInput() {
